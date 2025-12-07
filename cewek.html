@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mau Jadi Pacarku?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #ffb6d5, #ffe6f2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 30px 35px;
+      width: 380px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 0.7s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      font-weight: 700;
+      color: #d94f93;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #444;
+      margin-bottom: 25px;
+      font-size: 15px;
+    }
+
+    button {
+      padding: 12px 22px;
+      font-size: 15px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      margin: 8px;
+      transition: 0.2s ease;
+      font-weight: 600;
+    }
+
+    .yes {
+      background: #ff75b3;
+      color: white;
+      box-shadow: 0 4px 10px rgba(255, 118, 178, 0.5);
+    }
+
+    .yes:hover {
+      background: #ff4fa1;
+      transform: scale(1.07);
+    }
+
+    .no {
+      background: #dedede;
+      color: #444;
+    }
+
+    .no:hover {
+      background: #cfcfcf;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+<div class="card" id="form">
+  <h2>Aku mau tanya sesuatu...</h2>
+  <p>Kamu ngerasa nggak sih, akhir‑akhir ini aku makin perhatian ke kamu? 😳💗</p>
+  <button class="yes" onclick="next()">Kerasa banget 😳</button>
+  <button class="no" onclick="next()">Iya sih hehe 😆</button>
+</div>
+
+<script>
+let step = 1;
+
+function next() {
+  const form = document.getElementById("form");
+
+  if (step === 1) {
+    form.innerHTML = `
+      <h2>Pertanyaan kedua...</h2>
+      <p>Kamu nyaman nggak kalau aku tiba‑tiba chat kamu duluan tiap hari? 💬💞</p>
+      <button class="yes" onclick="next()">Nyaman banget 😍</button>
+      <button class="no" onclick="next()">Nyaman kok 😌</button>
+    `;
+  }
+
+  if (step === 2) {
+    form.innerHTML = `
+      <h2>Yang ketiga...</h2>
+      <p>Menurut kamu, aku tuh orangnya bikin kamu tenang atau bikin kamu senyum‑senyum sendiri? 😌💗</p>
+      <button class="yes" onclick="next()">Dua‑duanya 😭💘</button>
+      <button class="no" onclick="next()">Lebih ke senyum sih 😳</button>
+    `;
+  }
+
+  if (step === 3) {
+    form.innerHTML = `
+      <h2>Nah, jujur ya...</h2>
+      <p>Kamu pernah nggak, walau sedikit, kangen sama aku? 🥺💞</p>
+      <button class="yes" onclick="next()">Pernah.. sering malah 😳</button>
+      <button class="no" onclick="next()">Pernah dikit 😌</button>
+    `;
+  }
+
+  if (step === 4) {
+    form.innerHTML = `
+      <h2>Hehe...</h2>
+      <p>Kalo aku bilang aku kangen kamu, kamu bakal gimana? 😳💗</p>
+      <button class="yes" onclick="next()">Aku kangen balik 😭💗</button>
+      <button class="no" onclick="next()">Mungkin senyum sendiri 😳</button>
+    `;
+  }
+
+  if (step === 5) {
+    form.innerHTML = `
+      <h2>Sebelum terakhir...</h2>
+      <p>Kamu merasa nggak kalau aku tuh selalu berusaha bikin kamu happy? ✨💞</p>
+      <button class="yes" onclick="next()">Iya banget 😭💘</button>
+      <button class="no" onclick="next()">Iya kok hehe 😳</button>
+    `;
+  }
+
+  if (step === 6) {
+    form.innerHTML = `
+      <h2>Pertanyaan terakhir...</h2>
+      <p>Dari semua yang aku lakuin... mau nggak kamu jadi seseorang yang spesial buat aku? 😳💗</p>
+      <button class="yes" onclick="jawab(true)">MAU BANGET! 💘</button>
+      <button class="no" onclick="jawab(false)">Belum siap 😭</button>
+    `;
+  }
+
+  step++;
+}
+
+function jawab(status) {
+  const form = document.getElementById("form");
+  if (status) {
+    form.innerHTML = `
+      <h2>YEAAYY!!! 💖</h2>
+      <p>Aku bener‑bener seneng banget... makasih ya udah nerima aku 😭💞<br>Mulai hari ini, aku bakal jaga kamu baik‑baik. ✨💗</p>
+    `;
+  } else {
+    form.innerHTML = `
+      <h2>Gapapa kok... 🥺</h2>
+      <p>Aku tetap sayang sama kamu... mungkin waktunya belum sekarang.<br>Tapi aku bakal tetap ada buat kamu 💗</p>
+    `;
+  }
+}
+</script>
+
+</body>
+</html>
